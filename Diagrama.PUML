@@ -1,0 +1,45 @@
+@startuml
+
+class JuegoDinosaurio {
+ -Musica
+ +Sonido
+ -Fondo
+ -Dinosaurio
+ -Obstaculo
+ -ControlDelJuego
+}
+
+class JuegoDinosaurio
+JuegoDinosaurio *-- Musica
+JuegoDinosaurio o-- Sonido
+Sonido --o EfectoSonido
+JuegoDinosaurio *-- Fondo
+Fondo <|-- Luvia
+Fondo <|-- Nube
+Fondo <|-- Suelo
+Fondo <|-- Dia
+Dia *-- Sol
+Fondo <|-- Noche
+Noche *-- Luna
+JuegoDinosaurio *-- Dinosaurio
+Dinosaurio --o Jugador
+Jugador *-- Animacion
+Jugador o-- Colision
+Jugador *-- Cronometro
+Jugador *-- Puntuacion
+Puntuacion --o MayorPuntuacion
+MayorPuntuacion *-- Trofeo
+Dinosaurio *-- Posicion
+JuegoDinosaurio "1"*--"*" Obstaculo
+Obstaculo *-- Posicion
+Obstaculo <|-- Catus
+Obstaculo <|-- Tronco
+Obstaculo <|-- Grieta
+Obstaculo<|-- Pajaro
+JuegoDinosaurio *-- ControlDelJuego
+ControlDelJuego <|-- MenuPausa
+ControlDelJuego <|-- MenuInicio
+ControlDelJuego <|-- MenuFinal
+MenuFinal *-- Puntuacion
+MenuInicio *-- MayorPuntuacion
+@enduml
