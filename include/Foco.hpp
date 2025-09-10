@@ -1,4 +1,6 @@
-typedef bool EstadoFoco;
+#pragma once
+#include <EstadoFoco.hpp>
+
 
 class Foco{
     private:
