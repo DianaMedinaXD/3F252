@@ -20,6 +20,9 @@ class Alumno : public Persona{
 
 int main(int argc, char const *argv[])
 {
+
+Persona persona;
+
     cout << "Tamaño int:  " << sizeof(int) << endl;
     cout << "Tamaño long:  " << sizeof(long) << endl;
     cout << "Tamaño float:  " << sizeof(float) << endl;
