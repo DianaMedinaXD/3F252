@@ -8,11 +8,11 @@ class Humano{
         string nombre;
         int edad;
     public:
-        string LeerNombre(){
+        virtual string LeerNombre(){
             cin>>nombre;
             return nombre;
         }
-        int LeerEdad(){
+        virtual int LeerEdad(){
             cin>>edad;
             return edad;
         }
@@ -20,7 +20,7 @@ class Humano{
             nombre = "sin_nombre";
             edad = 0;
         }
-        
+         virtual ~Humano() {}
 };
 
 class Alumno : public Humano{
@@ -75,17 +75,18 @@ int main(int argc, char const *argv[])
     listaHumanos.emplace_back(new Empleado());
     listaHumanos.emplace_back(new Empleado());
 
-    for (auto &&humano : listaHumanos)
+    for (auto &&h : listaHumanos)
     {
-        cout << humano->LeerNombre() << endl;
+        cout << "Ingresa Nombre: ";
+        cout << h->LeerNombre() << endl;
     }
 
     // Liberar memoria
     delete alumno;
     delete empleado;
-    for (auto&& humano : listaHumanos)
+    for (auto&& h : listaHumanos)
     {
-        delete humano;
+        delete h;
     }
     
     return 0;
